@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    public float damage = 10f;
+    public int damage = 1;
 
     private void Start() {
         GameObject parent = GameObject.Find("Enemies");

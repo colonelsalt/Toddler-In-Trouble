@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public float speed = 3f;
+    public float bounceBackForce = 3f;
+
     private static Player instance;
     private ArrayList inventory;
     private Animator anim;
+    private Rigidbody2D mBody;
 
     private void Awake() {
         if (instance == null) {
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour {
     private void Start() {
         inventory = new ArrayList();
         anim = GetComponent<Animator>();
+        mBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update () {
@@ -45,14 +49,19 @@ public class Player : MonoBehaviour {
         Vector2 desiredVelocity = new Vector2 (newX, newY);
 
 		desiredVelocity *= speed;
-
-		Rigidbody2D rigidBody2D = GetComponent<Rigidbody2D> ();
-		rigidBody2D.velocity = desiredVelocity;
+		mBody.velocity = desiredVelocity;
 	}
 
     public void PickupItem(Item item) {
         if (item == Item.Gun && !inventory.Contains(item)) {
             inventory.Add(item);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Lava")) {
+            mBody.velocity *= -10;
+            GetComponent<Health>().TakeDamage(1);
         }
     }
 }
