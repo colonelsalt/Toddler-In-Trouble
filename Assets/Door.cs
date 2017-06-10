@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
-    public RoomManager roomManager;
     public string connectsTo;
+    public Vector2 entryPosition;
+
+    private RoomManager roomManager;
+    private Player player;
 
     private void Start() {
         roomManager = FindObjectOfType<RoomManager>();
+        player = FindObjectOfType<Player>();
     }
 
 
@@ -16,6 +20,7 @@ public class Door : MonoBehaviour {
         // If player entered door
         if (collision.GetComponent<Player>() != null) {
             roomManager.LoadRoom(connectsTo);
+            player.transform.position = entryPosition;
         }
     }
 }
