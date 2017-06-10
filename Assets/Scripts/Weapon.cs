@@ -87,8 +87,8 @@ public class Weapon : MonoBehaviour {
 			);
 
 			bullet.transform.position = new Vector3(
-				transform.position.x + bulletDirection.x,
-				transform.position.y + bulletDirection.y,
+				transform.position.x + bulletDirection.x * 1.5f,
+				transform.position.y + bulletDirection.y * 1.5f,
 				0.0f
 			);
 
