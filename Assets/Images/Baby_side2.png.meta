@@ -1,16 +1,18 @@
 fileFormatVersion: 2
-guid: 6bc37b7e29cee724882c88a2c0b5c154
-timeCreated: 1497117519
+guid: 795da08f9530b374aba8b01120115ab2
+timeCreated: 1497126004
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Baby_back_0
-    21300002: Baby_back_1
-    21300004: Baby_back_2
-    21300006: Baby_back_3
-    21300008: Baby_back_4
-    21300010: Baby_back_5
-    21300012: Baby_back_6
+    21300000: Baby_side2_0
+    21300002: Baby_side2_1
+    21300004: Baby_side2_2
+    21300006: Baby_side2_3
+    21300008: Baby_side2_4
+    21300010: Baby_side2_5
+    21300012: Baby_side2_6
+    21300014: Baby_side2_7
+    21300016: Baby_side2_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,91 +95,117 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Baby_back_0
+      name: Baby_side2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1612
-        width: 1075
-        height: 1612
+        y: 3200
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_1
+      name: Baby_side2_1
       rect:
         serializedVersion: 2
-        x: 1075
-        y: 1612
-        width: 1075
-        height: 1612
+        x: 1040
+        y: 3200
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_2
+      name: Baby_side2_2
       rect:
         serializedVersion: 2
-        x: 2150
-        y: 1612
-        width: 1075
-        height: 1612
+        x: 2080
+        y: 3200
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_3
+      name: Baby_side2_3
       rect:
         serializedVersion: 2
-        x: 3225
-        y: 1612
-        width: 1075
-        height: 1612
+        x: 0
+        y: 1600
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_4
+      name: Baby_side2_4
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1600
+        width: 1040
+        height: 1600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Baby_side2_5
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1600
+        width: 1040
+        height: 1600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Baby_side2_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1075
-        height: 1612
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_5
+      name: Baby_side2_7
       rect:
         serializedVersion: 2
-        x: 1075
+        x: 1040
         y: 0
-        width: 1075
-        height: 1612
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Baby_back_6
+      name: Baby_side2_8
       rect:
         serializedVersion: 2
-        x: 2150
+        x: 2080
         y: 0
-        width: 1075
-        height: 1612
+        width: 1040
+        height: 1600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
