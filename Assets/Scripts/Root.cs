@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Root : MonoBehaviour {
-	void dispatchPowerOnEvent() {
-		BroadcastMessage("handlePowerOn");
+	void dispatchPowerOnEvent() {;
 		Debug.Log ("POWER ON");
+		BroadcastMessage ("handlePowerOn");
 	}
 	void dispatchPowerOffEvent() {
-		BroadcastMessage("handlePowerOff");
 		Debug.Log ("POWER OFF");
+		BroadcastMessage("handlePowerOff");
 	}
 }

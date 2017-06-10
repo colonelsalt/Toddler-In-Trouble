@@ -15,7 +15,6 @@ public class Switch : MonoBehaviour {
 	private void decrementActiveLightSwitches() {
 		Debug.Log ("decrementActiveLightSwitches " + numberOfActiveSwitches);
 		if (--numberOfActiveSwitches == 0) {
-			Debug.Log ("y");
 			SendMessageUpwards("dispatchPowerOffEvent");
 		}
 	}
@@ -31,7 +30,7 @@ public class Switch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (touchingPlayer && Input.GetAxis ("Fire1") != 0) {
+		if (touchingPlayer) {
 			press();
 		}
 		if (timeRemaining > 0) {
