@@ -12,13 +12,13 @@ public class Door : MonoBehaviour {
 
     private void Start() {
         roomManager = FindObjectOfType<RoomManager>();
-        player = FindObjectOfType<Player>();
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision) {
         // If player entered door
-        if (collision.GetComponent<Player>() != null) {
+        Player player = collision.GetComponent<Player>();
+        if (player != null) {
             player.transform.position = entryPosition;
             roomManager.LoadRoom(connectsTo);
         }
