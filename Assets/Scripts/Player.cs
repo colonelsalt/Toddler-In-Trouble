@@ -1,15 +1,17 @@
 ﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
-	private float speed;
+    public float speed = 3f;
 
-	void Start () {
-		speed = 3f;
-	}
+    private void Start() {
+        DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += SetNewRoomPos;
+    }
 
-	void Update () {
+    private void Update () {
 		Vector2 desiredVelocity = new Vector2 (
 			Input.GetAxisRaw ("Horizontal"),
 			Input.GetAxisRaw ("Vertical")
@@ -20,4 +22,12 @@ public class Player : MonoBehaviour {
 		Rigidbody2D rigidBody2D = this.GetComponent<Rigidbody2D> ();
 		rigidBody2D.velocity = desiredVelocity;
 	}
+
+    private void SetNewRoomPos(Scene scene, LoadSceneMode mode) {
+        if (transform.position.y < 1 || transform.position.y > 13) {
+
+        } else if (transform.position.x < 1 || transform.position.x > 18) {
+
+        }
+    }
 }
