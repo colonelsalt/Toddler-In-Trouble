@@ -8,14 +8,14 @@ public class Switch : MonoBehaviour {
 	private void incrementActiveLightSwitches() {
 		Debug.Log ("incrementActiveLightSwitches " + numberOfActiveSwitches);
 		if (numberOfActiveSwitches++ == 0) {
-			SendMessageUpwards("dispatchPowerOnEvent");
+			Root.broadcastAll ("handlePowerOn");
 		}
 	}
 
 	private void decrementActiveLightSwitches() {
 		Debug.Log ("decrementActiveLightSwitches " + numberOfActiveSwitches);
 		if (--numberOfActiveSwitches == 0) {
-			SendMessageUpwards("dispatchPowerOffEvent");
+			Root.broadcastAll ("handlePowerOff");
 		}
 	}
 
