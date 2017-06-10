@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     public float speed = 3f;
     private static Player instance;
+    private ArrayList inventory;
 
     private void Awake() {
         if (instance == null) {
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void Start() {
+        inventory = new ArrayList();
+    }
+
     private void Update () {
 		Vector2 desiredVelocity = new Vector2 (
 			Input.GetAxis("Horizontal"),
@@ -23,7 +28,13 @@ public class Player : MonoBehaviour {
 
 		desiredVelocity *= speed;
 
-		Rigidbody2D rigidBody2D = this.GetComponent<Rigidbody2D> ();
+		Rigidbody2D rigidBody2D = GetComponent<Rigidbody2D> ();
 		rigidBody2D.velocity = desiredVelocity;
 	}
+
+    public void PickupItem(Item item) {
+        if (item == Item.Gun && !inventory.Contains(item)) {
+            inventory.Add(item);
+        }
+    }
 }

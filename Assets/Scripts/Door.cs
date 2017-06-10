@@ -19,8 +19,8 @@ public class Door : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         // If player entered door
         if (collision.GetComponent<Player>() != null) {
-            roomManager.LoadRoom(connectsTo);
             player.transform.position = entryPosition;
+            roomManager.LoadRoom(connectsTo);
         }
     }
 }
