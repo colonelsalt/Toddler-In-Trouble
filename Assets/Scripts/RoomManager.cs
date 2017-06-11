@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour {
 
     public void ResetLevel() {
         Debug.Log("Level restarted!");
+
         SceneManager.LoadSceneAsync(checkPointRoom);
     }
 }

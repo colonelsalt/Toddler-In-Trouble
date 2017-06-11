@@ -23,10 +23,6 @@ public class Switch : MonoBehaviour {
 	private float timeRemaining;
 	private bool touchingPlayer;
 	private bool state;
-
-	void Start () {
-		setGraphicState (false);
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -49,17 +45,6 @@ public class Switch : MonoBehaviour {
 		touchingPlayer = false;
 	}
 
-	private void setGraphicState(bool state) {
-		GameObject offGraphic = transform.GetChild (1).gameObject;
-		GameObject onGraphic = transform.GetChild (0).gameObject;
-
-		SpriteRenderer offGraphicSpriteRenderer = offGraphic.GetComponent<SpriteRenderer> ();
-		SpriteRenderer onGraphicSpriteRenderer = onGraphic.GetComponent<SpriteRenderer> ();
-
-		offGraphicSpriteRenderer.enabled = !state;
-		onGraphicSpriteRenderer.enabled = state;
-	}
-
 	private void setModelState(bool state) {
 		if (this.state != state) {
 			if (state)
@@ -72,7 +57,6 @@ public class Switch : MonoBehaviour {
 	}
 
 	private void setState(bool state) {
-		setGraphicState (state);
 		setModelState (state);
 	}
 

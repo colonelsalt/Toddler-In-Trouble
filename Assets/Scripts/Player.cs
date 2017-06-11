@@ -45,7 +45,6 @@ public class Player : MonoBehaviour {
             anim.SetTrigger("standTrigger");
         }
 
-
         Vector2 desiredVelocity = new Vector2 (newX, newY);
 
 		desiredVelocity *= speed;
@@ -55,13 +54,6 @@ public class Player : MonoBehaviour {
     public void PickupItem(Item item) {
         if (item == Item.Gun && !inventory.Contains(item)) {
             inventory.Add(item);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Lava")) {
-            mBody.velocity *= -10;
-            GetComponent<Health>().TakeDamage(1);
         }
     }
 }
