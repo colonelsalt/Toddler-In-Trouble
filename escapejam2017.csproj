@@ -84,6 +84,7 @@
     <Compile Include="Assets\InventoryDisplay.cs" />
     <Compile Include="Assets\Lava.cs" />
     <Compile Include="Assets\MusicPlayer.cs" />
+    <Compile Include="Assets\ResetLevelOnDeath.cs" />
     <Compile Include="Assets\Scripts\Background.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />

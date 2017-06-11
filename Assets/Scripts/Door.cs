@@ -9,9 +9,11 @@ public class Door : MonoBehaviour {
 
     private RoomManager roomManager;
     private Player player;
+    private GameObject transitionPanel;
 
     private void Start() {
         roomManager = FindObjectOfType<RoomManager>();
+        transitionPanel = GameObject.Find("Transition panel");
     }
 
 
@@ -19,8 +21,15 @@ public class Door : MonoBehaviour {
         // If player entered door
         Player player = collision.GetComponent<Player>();
         if (player != null) {
+            LoadTransition();
             player.transform.position = entryPosition;
             roomManager.LoadRoom(connectsTo);
+        }
+    }
+
+    private void LoadTransition() {
+        if (transitionPanel != null) {
+            transitionPanel.GetComponent<Animator>().SetTrigger("transitionOutTrigger");
         }
     }
 }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public int health = 3;
+    public int health = 8;
     public AudioClip[] hitSounds;
     public AudioClip deathSound;
 
     private SpriteRenderer mRend;
     private bool isInvincible;
+    private bool isEnemy;
 
     private void Start() {
         mRend = GetComponent<SpriteRenderer>();
+        isEnemy = (GetComponent<Enemy>() != null);
+
         if (mRend == null) {
             mRend = GetComponentInChildren<SpriteRenderer>();
         }
@@ -24,7 +27,9 @@ public class Health : MonoBehaviour {
             if (hitSounds.Length > 0) {
                 PlayHitSound();
             }
-            isInvincible = true;
+            if (!isEnemy) {
+                isInvincible = true;
+            }
             StartCoroutine(FlashAfterDamage());
             health -= amount;
             if (health <= 0) {
@@ -58,11 +63,14 @@ public class Health : MonoBehaviour {
 
     public void Die() {
         // TODO: activate death animation here
-
-
+        AudioSource.PlayClipAtPoint(deathSound, transform.position);
         if (GetComponent<Player>() != null) {
-            FindObjectOfType<RoomManager>().ResetLevel();
+            GameObject transitionPanel = GameObject.Find("Level transition panel");
+            if (transitionPanel != null) {
+                transitionPanel.GetComponent<Animator>().SetTrigger("deathTrigger");
+            }
+        } else {
+            Destroy(gameObject, deathSound.length);
         }
-        Destroy(gameObject);
     }
 }

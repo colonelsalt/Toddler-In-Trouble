@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour {
 	public GameObject projectile;
 	public float projectileSpeed;
 	public float projectileInterval;
+    public AudioClip fireSound;
 
 	private float projectileCooldown;
 	private InputMode inputMode;
@@ -79,6 +80,8 @@ public class Weapon : MonoBehaviour {
 
 	void FireBullet() {
 		if (projectile) {
+            AudioSource.PlayClipAtPoint(fireSound, transform.position);
+
 			GameObject bullet = (GameObject)Instantiate (projectile);
 
 			Vector2 bulletDirection = new Vector2 (
