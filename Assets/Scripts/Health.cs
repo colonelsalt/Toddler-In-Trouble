@@ -7,10 +7,12 @@ public class Health : MonoBehaviour {
     public int health = 8;
     public AudioClip[] hitSounds;
     public AudioClip deathSound;
+    public bool isBear;
 
-	private SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     private bool isInvincible;
     private bool isPlayer;
+    
 
     private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -28,7 +30,7 @@ public class Health : MonoBehaviour {
 
     public void TakeDamage(int amount) {
         // TODO: Activate damage animation here
-        if (!isInvincible) {
+        if (!isInvincible && !isBear) {
             if (hitSounds.Length > 0) {
                 PlayHitSound();
             }

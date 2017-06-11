@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Switch : MonoBehaviour {
+    public AudioClip switchSound;
 	private static int numberOfActiveSwitches = 0;
 
 	public static void resetPowerState() {
@@ -39,13 +40,15 @@ public class Switch : MonoBehaviour {
 		if (timeRemaining > 0) {
 			timeRemaining -= Time.deltaTime;
 			if (timeRemaining <= 0) {
-				setState(false);
+                AudioSource.PlayClipAtPoint(switchSound, transform.position);
+                setState(false);
 			}
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
         if (other.GetComponent<Player>() != null) {
+            AudioSource.PlayClipAtPoint(switchSound, transform.position);
             touchingPlayer = true;
         }
 	}

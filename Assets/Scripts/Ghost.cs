@@ -10,6 +10,8 @@ public class Ghost : MonoBehaviour {
 
 	public Behaviour behaviour;
     public float movementSpeed;
+    public bool isActuallyGhost;
+    public AudioClip entranceSound;
 
     private Player player;
     private Rigidbody2D mBody;
@@ -18,6 +20,9 @@ public class Ghost : MonoBehaviour {
         player = FindObjectOfType<Player>();
         mBody = GetComponent<Rigidbody2D>();
         mBody.velocity = Vector3.zero;
+        if (isActuallyGhost) {
+            AudioSource.PlayClipAtPoint(entranceSound, transform.position);
+        }
 	}
 	
 	void Update () {

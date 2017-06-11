@@ -13,11 +13,6 @@ public class RoomManager : MonoBehaviour {
 
     private void Awake() {
         player = FindObjectOfType<Player>();
-        if (player == null) {
-            // For debugging
-            GameObject playerObj = Instantiate(playerPrefab) as GameObject;
-            player = playerObj.GetComponent<Player>();
-        }
         musicPlayer = FindObjectOfType<MusicPlayer>();
         SceneManager.sceneLoaded += EnterRoom;
     }
