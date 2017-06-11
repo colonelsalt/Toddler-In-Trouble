@@ -9,12 +9,4 @@ public class Root : MonoBehaviour {
 			i.SendMessage (message, SendMessageOptions.DontRequireReceiver);
 		}
 	}
-	void dispatchPowerOnEvent() {;
-		Debug.Log ("POWER ON");
-		broadcastAll ("handlePowerOn");
-	}
-	void dispatchPowerOffEvent() {
-		Debug.Log ("POWER OFF");
-		broadcastAll("handlePowerOff");
-	}
 }
