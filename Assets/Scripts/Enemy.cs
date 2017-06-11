@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour {
         transform.SetParent(parent.transform);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionStay2D(Collision2D collision) {
         GameObject collidedWith = collision.gameObject;
 
         if (collidedWith.GetComponent<Player>() != null) {
