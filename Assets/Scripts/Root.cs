@@ -9,4 +9,10 @@ public class Root : MonoBehaviour {
 			i.SendMessage (message, SendMessageOptions.DontRequireReceiver);
 		}
 	}
+	public static void broadcastAll(string message, int value) {
+		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>() ;
+		foreach (GameObject i in allObjects) {
+			i.SendMessage (message, value, SendMessageOptions.DontRequireReceiver);
+		}
+	}
 }

@@ -8,17 +8,22 @@ public class Health : MonoBehaviour {
     public AudioClip[] hitSounds;
     public AudioClip deathSound;
 
-    private SpriteRenderer mRend;
+	private SpriteRenderer spriteRenderer;
     private bool isInvincible;
-    private bool isEnemy;
+    private bool isPlayer;
 
     private void Start() {
-        mRend = GetComponent<SpriteRenderer>();
-        isEnemy = (GetComponent<Enemy>() != null);
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (mRend == null) {
-            mRend = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer == null) {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
+
+		isPlayer = (GetComponent<Player>() != null);
+
+		if (isPlayer) {
+			Root.broadcastAll ("livesRemaining", health);
+		}
     }
 
     public void TakeDamage(int amount) {
@@ -27,11 +32,14 @@ public class Health : MonoBehaviour {
             if (hitSounds.Length > 0) {
                 PlayHitSound();
             }
-            if (!isEnemy) {
-                isInvincible = true;
-            }
             StartCoroutine(FlashAfterDamage());
-            health -= amount;
+			health -= amount;
+
+			if (isPlayer) {
+				Root.broadcastAll ("livesRemaining", health);
+				isInvincible = true;
+			}
+
             if (health <= 0) {
                 Die();
             }
@@ -44,18 +52,18 @@ public class Health : MonoBehaviour {
     }
 
     IEnumerator FlashAfterDamage() {
-        if (mRend != null) {
+        if (spriteRenderer != null) {
 			float blinkInterval = 0.1f;
-            Color standardColour = mRend.color;
+            Color standardColour = spriteRenderer.color;
 			bool active = false;
 
 			for (int i = 0; i < 20; i++) {
-				mRend.color = active ? Color.red : standardColour;
+				spriteRenderer.color = active ? Color.red : standardColour;
 				yield return new WaitForSeconds(blinkInterval);
 				active = !active;
 			}
 
-			mRend.color = standardColour;
+			spriteRenderer.color = standardColour;
             isInvincible = false;
             yield return null;
         }
@@ -64,7 +72,7 @@ public class Health : MonoBehaviour {
     public void Die() {
         // TODO: activate death animation here
         AudioSource.PlayClipAtPoint(deathSound, transform.position);
-        if (GetComponent<Player>() != null) {
+		if (isPlayer) {
             GameObject transitionPanel = GameObject.Find("Level transition panel");
             if (transitionPanel != null) {
                 transitionPanel.GetComponent<Animator>().SetTrigger("deathTrigger");
