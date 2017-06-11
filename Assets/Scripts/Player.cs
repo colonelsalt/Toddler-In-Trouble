@@ -5,13 +5,25 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     public float speed = 3f;
     public float bounceBackForce = 3f;
+	public GameObject healthBar;
 
+	private static GameObject healthBarInstance;
     private static Player instance;
+
     private ArrayList inventory;
     private Animator anim;
     private Rigidbody2D mBody;
 
-    private void Awake() {
+	private void createHealthBar() {
+		if (healthBarInstance == null) {
+			healthBarInstance = Instantiate(healthBar);
+			DontDestroyOnLoad(healthBarInstance);
+			healthBarInstance.transform.position = new Vector2 (0.5f, 13.5f);
+		}
+	}
+
+	private void Awake() {
+		createHealthBar ();
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -44,6 +56,9 @@ public class Player : MonoBehaviour {
         } else {
             anim.SetTrigger("standTrigger");
         }
+
+		Health healthComponent = GetComponent<Health> ();
+		healthComponent.broadcastHealth ();
 
         Vector2 desiredVelocity = new Vector2 (newX, newY);
 
