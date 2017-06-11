@@ -20,31 +20,31 @@ public class Health : MonoBehaviour {
         }
 
 		isPlayer = (GetComponent<Player>() != null);
-
-		if (isPlayer) {
-			Root.broadcastAll ("livesRemaining", health);
-		}
     }
 
     public void TakeDamage(int amount) {
         // TODO: Activate damage animation here
-        if (!isInvincible) {
+		if (!isInvincible) {
+			health -= amount;
             if (hitSounds.Length > 0) {
                 PlayHitSound();
             }
-            StartCoroutine(FlashAfterDamage());
-			health -= amount;
 
 			if (isPlayer) {
-				Root.broadcastAll ("livesRemaining", health);
 				isInvincible = true;
 			}
 
             if (health <= 0) {
                 Die();
-            }
+			}
+
+			StartCoroutine(FlashAfterDamage());
         }
     }
+
+	public void broadcastHealth() {
+		Root.broadcastAll ("livesRemaining", health);
+	}
 
     private void PlayHitSound() {
         AudioClip soundToPlay = hitSounds[Random.Range(0, hitSounds.Length)];
@@ -77,6 +77,7 @@ public class Health : MonoBehaviour {
             if (transitionPanel != null) {
                 transitionPanel.GetComponent<Animator>().SetTrigger("deathTrigger");
             }
+			health = 3;
         } else {
             Destroy(gameObject, deathSound.length);
         }
