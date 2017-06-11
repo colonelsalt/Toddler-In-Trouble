@@ -40,18 +40,17 @@ public class Health : MonoBehaviour {
 
     IEnumerator FlashAfterDamage() {
         if (mRend != null) {
+			float blinkInterval = 0.1f;
             Color standardColour = mRend.color;
-            mRend.color = Color.red;
-            yield return new WaitForSeconds(0.15f);
-            mRend.color = standardColour;
-            yield return new WaitForSeconds(0.15f);
-            mRend.color = Color.red;
-            yield return new WaitForSeconds(0.15f);
-            mRend.color = standardColour;
-            yield return new WaitForSeconds(0.15f);
-            mRend.color = Color.red;
-            yield return new WaitForSeconds(0.15f);
-            mRend.color = standardColour;
+			bool active = false;
+
+			for (int i = 0; i < 20; i++) {
+				mRend.color = active ? Color.red : standardColour;
+				yield return new WaitForSeconds(blinkInterval);
+				active = !active;
+			}
+
+			mRend.color = standardColour;
             isInvincible = false;
             yield return null;
         }
