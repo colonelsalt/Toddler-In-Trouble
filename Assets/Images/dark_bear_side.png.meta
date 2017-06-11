@@ -1,12 +1,16 @@
 fileFormatVersion: 2
-guid: 2a8c37d131b6c0742a01dc3eb6a65c8a
-timeCreated: 1497177953
+guid: abfc98e2da8dc6243815033624f93729
+timeCreated: 1497180698
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: light ghost_0
-    21300002: light ghost_1
-    21300004: light ghost_2
+    21300000: dark_bear_side_0
+    21300002: dark_bear_side_1
+    21300004: dark_bear_side_2
+    21300006: dark_bear_side_3
+    21300008: dark_bear_side_4
+    21300010: dark_bear_side_5
+    21300012: dark_bear_side_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +47,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1000
+  spritePixelsToUnits: 600
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -89,39 +93,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: light ghost_0
+      name: dark_bear_side_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1754
-        width: 1240
-        height: 1754
+        y: 4636
+        width: 1418
+        height: 2318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: light ghost_1
+      name: dark_bear_side_1
       rect:
         serializedVersion: 2
-        x: 1240
-        y: 1754
-        width: 1240
-        height: 1754
+        x: 1418
+        y: 4636
+        width: 1418
+        height: 2318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: light ghost_2
+      name: dark_bear_side_2
+      rect:
+        serializedVersion: 2
+        x: 2836
+        y: 4636
+        width: 1418
+        height: 2318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dark_bear_side_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2318
+        width: 1418
+        height: 2318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dark_bear_side_4
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 2318
+        width: 1418
+        height: 2318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dark_bear_side_5
+      rect:
+        serializedVersion: 2
+        x: 2836
+        y: 2318
+        width: 1418
+        height: 2318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dark_bear_side_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1240
-        height: 1754
+        width: 1418
+        height: 2318
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

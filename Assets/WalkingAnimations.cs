@@ -43,5 +43,6 @@ public class WalkingAnimations : MonoBehaviour {
 
     private void handlePowerOff() {
         lightIsOn = false;
+        anim.SetTrigger("powerOffTrigger");
     }
 }

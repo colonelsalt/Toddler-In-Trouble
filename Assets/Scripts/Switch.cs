@@ -45,11 +45,15 @@ public class Switch : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		touchingPlayer = true;
+        if (other.GetComponent<Player>() != null) {
+            touchingPlayer = true;
+        }
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		touchingPlayer = false;
+        if (other.GetComponent<Player>() != null) {
+            touchingPlayer = false;
+        }
 	}
 
 	private void setModelState(bool state) {

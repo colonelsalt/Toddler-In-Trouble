@@ -39,7 +39,7 @@ public class Weapon : MonoBehaviour {
 
     public void Activate() {
         weaponIsActive = true;
-        GetComponentInChildren<SpriteRenderer>().enabled = true;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
     }
 
 	void HandleMouseInput() {
