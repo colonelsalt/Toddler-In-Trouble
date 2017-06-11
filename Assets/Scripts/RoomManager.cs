@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviour {
 
     public string checkPointRoom = "01_StartRoom";
+    public GameObject playerPrefab;
+
     private Player player;
     private MusicPlayer musicPlayer;
 
     private void Awake() {
         player = FindObjectOfType<Player>();
+        if (player == null) {
+            // For debugging
+            GameObject playerObj = Instantiate(playerPrefab) as GameObject;
+            player = playerObj.GetComponent<Player>();
+        }
         musicPlayer = FindObjectOfType<MusicPlayer>();
         SceneManager.sceneLoaded += EnterRoom;
     }
