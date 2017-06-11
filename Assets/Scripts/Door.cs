@@ -6,6 +6,7 @@ public class Door : MonoBehaviour {
 
     public string connectsTo;
     public Vector2 entryPosition;
+    public AudioClip doorEntrySound;
 
     private RoomManager roomManager;
     private Player player;
@@ -21,6 +22,7 @@ public class Door : MonoBehaviour {
         // If player entered door
         Player player = collision.GetComponent<Player>();
         if (player != null) {
+            AudioSource.PlayClipAtPoint(doorEntrySound, transform.position);
             LoadTransition();
             player.SetSpriteVisibility(false);
             player.transform.position = entryPosition;
