@@ -5,6 +5,13 @@ using UnityEngine;
 public class Switch : MonoBehaviour {
 	private static int numberOfActiveSwitches = 0;
 
+	public static void resetPowerState() {
+		if (numberOfActiveSwitches > 0) {
+			Root.broadcastAll ("handlePowerOff");
+		}
+		numberOfActiveSwitches = 0;
+	}
+
 	private void incrementActiveLightSwitches() {
 		Debug.Log ("incrementActiveLightSwitches " + numberOfActiveSwitches);
 		if (numberOfActiveSwitches++ == 0) {

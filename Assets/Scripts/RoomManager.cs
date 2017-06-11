@@ -27,8 +27,8 @@ public class RoomManager : MonoBehaviour {
     }
 
     public void LoadRoom(string room) {
-        SceneManager.LoadSceneAsync(room);
-        musicPlayer.handlePowerOff();
+		SceneManager.LoadSceneAsync(room);
+		Switch.resetPowerState();
     }
 
     public void ResetLevel() {
