@@ -22,12 +22,12 @@ public class MusicPlayer : MonoBehaviour {
         lightPlayer.mute = true;
     }
 
-    private void handlePowerOff() {
+    public void handlePowerOff() {
         lightPlayer.mute = true;
         darkPlayer.mute = false;
     }
 
-    private void handlePowerOn() {
+    public void handlePowerOn() {
         darkPlayer.mute = true;
         lightPlayer.mute = false;
     }

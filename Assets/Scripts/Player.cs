@@ -53,7 +53,12 @@ public class Player : MonoBehaviour {
 
     public void PickupItem(Item item) {
         if (item == Item.Gun && !inventory.Contains(item)) {
+            GetComponentInChildren<Weapon>().Activate();
             inventory.Add(item);
         }
+    }
+
+    public void SetSpriteVisibility(bool visibility) {
+        transform.localScale = (visibility) ? Vector3.one : Vector3.zero;
     }
 }

@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour {
 	public float projectileSpeed;
 	public float projectileInterval;
     public AudioClip fireSound;
+    public bool weaponIsActive;
 
 	private float projectileCooldown;
 	private InputMode inputMode;
@@ -24,14 +25,22 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void Update() {
-		CheckForMouseActivity();
-		CheckForJoystickActivity();
-		switch(inputMode) {
-			case InputMode.Mouse: HandleMouseInput(); break;
-			case InputMode.Joystick: HandleJoystickInput(); break;
-		}
-		CheckForFireBullet();
+        CheckForMouseActivity();
+        CheckForJoystickActivity();
+        switch (inputMode) {
+            case InputMode.Mouse: HandleMouseInput(); break;
+            case InputMode.Joystick: HandleJoystickInput(); break;
+        }
+        if (weaponIsActive) {
+        CheckForFireBullet();
+    }
+            
 	}
+
+    public void Activate() {
+        weaponIsActive = true;
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
+    }
 
 	void HandleMouseInput() {
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

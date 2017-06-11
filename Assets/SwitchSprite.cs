@@ -9,6 +9,9 @@ public class SwitchSprite : MonoBehaviour {
 
 	void Start () {
         mRend = GetComponent<SpriteRenderer>();
+        if (mRend == null) {
+            mRend = GetComponentInChildren<SpriteRenderer>();
+        }
 	}
 
     private void handlePowerOff() {

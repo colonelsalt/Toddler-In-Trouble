@@ -22,6 +22,7 @@ public class Door : MonoBehaviour {
         Player player = collision.GetComponent<Player>();
         if (player != null) {
             LoadTransition();
+            player.SetSpriteVisibility(false);
             player.transform.position = entryPosition;
             roomManager.LoadRoom(connectsTo);
         }
