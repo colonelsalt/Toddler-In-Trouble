@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour {
 
+public class Ghost : MonoBehaviour {
+	public enum Behaviour {
+		Chase, Flee, Sleep
+	}
+
+	public Behaviour behaviour;
     public float movementSpeed;
-    public float rotationSpeed;
 
     private Player player;
     private Rigidbody2D mBody;
@@ -17,12 +21,31 @@ public class Ghost : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (player != null) {
-            Vector3 playerPos = player.transform.position;
-            transform.LookAt(player.transform, Vector3.up);
-            transform.Rotate(new Vector3(0, -90, 0), Space.Self);
+		if (player != null) {
+			Rigidbody2D rigidBody2D = GetComponent<Rigidbody2D> ();
 
-            transform.Translate(transform.forward * movementSpeed * Time.deltaTime);
+
+			if (behaviour == Behaviour.Sleep) {
+				rigidBody2D.velocity = Vector2.zero;
+			} else {
+				Vector2 direction = new Vector2 (
+					player.transform.position.x - transform.position.x,
+					player.transform.position.y - transform.position.y
+				);
+				direction.Normalize ();
+
+				if (behaviour == Behaviour.Flee) {
+					direction = -direction;
+				}
+
+				rigidBody2D.velocity = Time.deltaTime * direction * movementSpeed;
+			}
         }
+	}
+	void handlePowerOn() { Debug.Log ("Powering on ghost.");
+		behaviour = Behaviour.Flee;
+	}
+	void handlePowerOff() {
+		behaviour = Behaviour.Chase;
 	}
 }
